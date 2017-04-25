@@ -1,0 +1,81 @@
+<!-- 文档区块元素 -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		[class="section"]{
+
+			padding-bottom: 3em;
+			/*em 是专业网页开发者的偏好，用于比例缩放*/
+		}
+		
+		li{
+
+			display: inline-block;
+			border: 1px solid;
+			list-style-type: none;
+			padding:  0.2em 1em;
+		}
+
+		li ul { display:  none; } /* li 下的 ul 标签不现实*/
+		li:hover>ul{display: block;} /* 在鼠标触碰后 显示*/
+	</style>
+</head>
+<!-- 在body标签中 一些属性如 background 、text 、 link 、 vlink 、alink 、 等属性已经被废弃 -->
+<!-- 这些属性都将通过css进行操纵 -->
+<body>
+<!-- 在body中 出现的第一类元素是那些用于将内容组织成不同逻辑区块的元素 -->  <!-- 区块型 文档流型 -->
+<!-- section 通用区块从页面上其他类型内容区分出来 --> 						<!-- 区块型 文档流型 -->
+<!-- nav 含有导航链接的区块 -->												<!-- 区块型 文档流型 -->
+<!-- article 自包含可聚合或可用的文章 -->									<!-- 区块型 文档流型 -->
+<!-- aside 不直接与相关内容的侧边栏 -->										<!-- 区块型 文档流型 -->
+<!-- h1 h2 ...  区块内的标题-->												<!-- 标题型 文档流型 -->
+<!-- hgroup 标题组 -->														<!-- 标题型 文档流型 -->
+<!-- header 直接或区块的介绍性 或导航辅助 -->								<!-- 文档流型 -->
+<!-- footer 页面或区块的脚部-->												<!-- 文档流型 -->
+<!-- address 页面或者区块的联系信息 --> 									<!-- 文档流型 -->
+
+
+<!-- 在页面的某一内容区块里，各种区块的组件被分为段落列表图标等 
+	段落里的其他元素将内容分组比区块更小的单元。除figure 和figcaption。	
+ -->
+<!-- 文档流型 -->
+<!-- p 一个内容段落 hr 主题切换  pre 预格式化文本块 blockquote 另一个来源的区块引用 ol 有序 ul 无序 dl 名字/值描述-->
+<!-- 其他 -->
+<!-- li ul或者ol的条目列表 -->
+<!-- dt dd元素内部标题 -->
+<!-- dd dt元素的描述 -->
+<!-- html5 -->
+<!-- figure 可选标题的图标  -->												<!-- 文档流型 -->
+<!-- figcaption figure的标题 -->
+
+
+<!-- 然后我们将举一些例子来展示一下 -->
+<p class="section">you content here</p>
+<!-- hr元素 中的size width noshade align 被废弃 -->
+<hr>
+<!-- pre 用于保持标签的空格 制表符号 和换行 另外这个效果可以通过 css中的 white-space:pre 替代 -->
+<!-- 要标注代码时，用code元素结合white-space css属性 ，既保留了格式 又能在格式缺失的时候传达内容的语义 -->
+<pre>
+int main(){
+
+	return 0;
+}
+</pre>
+<!-- blockquote 传统上被用于展示，而不是和他的语义和结构有关 -->
+<blockquote>对于段内的引用还有一个q元素</blockquote>
+
+<!-- 有序列表 -->
+<ol start="2">
+	<li>item 1</li><li>item 2</li>
+</ol>
+
+<ul>
+	<li><a href="index.html"> home</a></li><li><a href="index.html"> home</a></li><li><a href="index.html"> home</a></li><li><a href="index.html"> home</a></li>
+</ul>
+
+<ul><li><ul><li>1</li><li>2</li></ul></li></ul>
+</body>
+</html>
