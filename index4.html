@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	a > section > h1{
+		text-align: center;
+	}
+	p{
+		text-align: center;
+	}
+	span{
+		text-align: center;
+	}
+	div{
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+</style>
+<body>
+<!-- html5 中超文本锚点内容可以被嵌套，只要不是交互内容里面的 -->
+<a  id="head" href="">
+	<section><!-- <section> 标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。 -->
+	<!--属性 cite	URL	section 的 URL，假如 section 摘自 web 的话。 -->
+		<h1>wow an entire section in a link </h1>
+	</section>
+</a>
+<!-- 虽然em用于强调，而i元素用于将文字从其他文字中突出 ，当使用不同的设备阅读时会有不同的效果 -->
+<p>好久没有你的<i><strong>信，</strong><em>好久没有人陪我谈心</em>怀念你柔情似水的眼睛</i></p>
+
+<!-- 当内容是技术术语，分类名 或者外来语句也可以用i元素 -->
+<p><i lang="fr">oh la la </i></p>
+
+<!-- b用来分割字 而不增加重要性 或者不同的声音情绪 与i相比 -->
+<p>在远方的时候<b>又想你到泪流</b></p>
+
+<!-- 次要评论：small -->
+<!-- 语义小字、次要评论、所有可能包含的法律声明、版权等 -->
+<div><small>词曲：李宗盛</small></div>
+
+<div><s>你不爱我</s></div>
+
+<div><blockquote cite="#head">
+	<p>
+		abc<mark><em>知乎</em><s>和你在一起</s></mark>
+	</p>
+	<p>
+		断桥是否下过雪我望着湖面水中含月如雪	
+	</p>
+</blockquote></div>
+
+<!-- q 行内引用 -->
+<div>
+	<dfn id="nfa">
+		<abr title="National farm association">naf</abr>
+	</dfn>
+</div>
+
+<!-- 下标与上标  -->
+<!-- time date中格式 T为必须标识符 YYYY-MM-DDThh:mm:ssTZD-->
+<div><time date="2011-10-10">monday october 10 <sup>th</sup> 2011</time></div>
+
+</body>
+</html>
