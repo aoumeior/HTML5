@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta >
+	<title>Document</title>
+</head>
+<style>
+p{
+	text-align: center;
+}
+div{
+	margin: 10px auto;
+	text-align: center;
+}
+</style>
+<body>
+	<datalist id="salaries">
+		<option value="10,004"></option>
+		<option value="10,003"></option>
+		<option value="10,002"></option>
+		<option value="10,001"></option>
+	</datalist>
+	<p><input type="text" name="salary" placeholder="Enter desired salary" list="salaries"></p>
+	<div>
+	<!-- disabled 用来禁用用户与菜单的交互 -->
+	<!-- multiple 属性那么select会显示一个可滚动的列表框，size属性用来显示行数 -->
+	<!-- 注意input中option和select中的select的不同 -->
+	<select name="cheesemenu" id=""  multiple="" size="3">
+		<!-- option disable -->
+		<optgroup label="worlds">
+		<!-- option 有四个属性 disable selected value label -->
+		<!-- label 用来直接提供另一种显示的标签而仍然保持传送到服务器的值-->
+		<option>a</option>
+		<option selected>b</option>
+		<option>c</option>
+		<option>d</option>
+		<option label="All">All of the cheese in all of the worlds</option>
+		</optgroup>
+		<optgroup label="numbers">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option label="All">All of the cheese in all of the worlds</option>
+		</optgroup>
+	</select>
+	</div>
+
+	<!-- textarea 有一个ward属性用于表示在提交数据里是否需要加上换行符 这个属性可以使hard 或者是soft(default) -->
+	<div><textarea name="" id="" cols="30" rows="10" wrap="hard" placeholder="textarea"></textarea>
+	</div>
+	<!-- progress 用来显示步骤的进度 而meter元素是用来显示度量的 -->
+	<div><progress max="100" value="10">10……100</progress></div>
+	<div>
+		<meter min="10" low="20" high="80" optimum="90" max="100" value="80"></meter>80%
+	</div>
+	<div>
+	<input id="inputa" type="text">
+	<input id="inputb"type="text">
+	<output id="resid" name="result" for="inputa inputb"></output>
+	</div>
+<script>
+	var inputa;
+	var inputb;
+	var resid;
+	function init(){
+		inputa=document.getElementById("inputa")
+		inputb=document.getElementById("inputb")
+		resid=document.getElementById("resid")
+		inputa.oninput = updateResult;
+		inputb.oninput = updateResult;
+	}
+	function updateResult(){
+
+		resid.value=Number(inputb.value)+Number(inputa.value);
+	}
+	window.onload = init;
+</script>
+</body>
+
+</html>
