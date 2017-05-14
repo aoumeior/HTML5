@@ -1,17 +1,17 @@
 
 class method{
 
-	constructor(me){
+	constructor(e){
 
-		this.metd =me;
+		this.metd = e;
 	}
 
-	setBegin(me){
+	set setbegin(value){
 
-		this.metd = me;
+		this.metd.Go = value;
 	}
 
-	begin(){
+	get begin(){
 
 		this.metd.Go();
 	}
