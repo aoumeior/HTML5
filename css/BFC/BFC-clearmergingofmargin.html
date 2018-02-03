@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div class="parent">  <div class='bro1'></div></div>
+  <div class='bro2'> </div>
+<style type="text/css">
+	body {
+		margin:0;
+		padding:0;
+	}
+	/*首先我们要知道怎样创建BFC。一个BFC可以被显式触发，只需满足以下条件之一：
+
+    float的值不为none；
+    overflow的值不为visible；
+    position的值为fixed / absolute；
+    display的值为table-cell / table-caption / inline-block / flex / inline-flex。
+	*/
+	.parent {
+		overflow: hidden;
+	}
+	.bro1 {
+	  width:300px;
+	  height:200px;
+	  background:#ddd;
+	  margin-bottom:30px;
+	 }
+	.bro2 {
+	  width:200px;
+	  height:100px;
+	  background:pink;
+	  margin-top:20px;
+	 }
+</style>
+</body>
+</html>
