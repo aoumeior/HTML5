@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+	<meta charset="UTF-8">
+	<title>margin-Empty-blocks</title>
+</head>
+<body>
+	<div class="bro1"></div>
+	<div class="special"></div>
+	<div class="bro2"></div>
+</body>
+<style>
+	.bro1{
+  width: 300px;
+  height: 200px;
+  background: #ddd;
+	}
+	.bro2{
+	  width: 200px;
+	  height: 100px;
+	  background: pink;
+	}
+	.special{
+		min-height: 1px; /* min-size is 1 px */
+		/*空的块级元素，如果其border、padding、inline content、height、min-height都不存在，那么它的上下外边距将会合并。*/
+	  margin-top: 20px;
+	  margin-bottom: 30px;
+	}
+</style>
+</html>

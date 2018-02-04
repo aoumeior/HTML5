@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="bro1"></div>
+	<!-- <div style="display: inline-block;"> parent become BFC ,will remove margin collaspe -->
+	<div class="bro2"></div>
+	<!-- </div> -->
+</body>
+<style>
+body{
+  margin:0;
+  padding:0;
+}
+.bro1{
+  width:300px;
+  height:200px;
+  background:#ddd;
+  margin-bottom:30px;
+}
+.bro2{
+  width:200px;
+  height:100px;
+  margin-top:20px;
+  /*jsut a element , we can't remove margin collaspe, we need increase the element' margin'size with size of last brother of margin*/
+  background:pink;
+}
+</style>
+</html>
