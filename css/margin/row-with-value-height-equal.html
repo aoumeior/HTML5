@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+	.container 
+	{
+		margin: 0 auto;
+		width: 100%;
+		overflow: hidden;
+	}
+	.left
+	{
+		height: 50px;
+		width: 33.3%;
+		margin-bottom: -50000px;
+		padding-bottom: 50000px;
+		float: left;
+		background-color: rgba(33,114,214,0.8);
+	}
+
+	.main 
+	{
+		height: 100px;
+		margin-bottom: -5000px;
+		width: 33.3%;
+		float: left;
+		padding-bottom: 5000px;
+		background-color: rgba(255, 82, 0, 0.8);
+	}
+	.right
+	{
+		width: 33.33%;
+		float: left;
+		margin-bottom: -5000px;
+		padding-bottom: 5000px;
+		background-color: rgba(90, 243, 151, 0.8);
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="left"> height:50px</div>
+	<div class="main">height:100px</div>
+	<div class="right">height:30px</div>
+	<!-- 虽然设置了5000的内边距，但是我用－5000的外边距去抵消掉，所以对于父元素来说（上文所说的css能读取的高度），他还是原来的高度（但其自身实际高度为5000p x+本来高度），然后父元素在加上overflow:hidden;以最高的高度进行裁切，所以就有了看起来“等高”的3个div。 -->
+
+</div>
+</body>
+</html>
