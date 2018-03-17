@@ -1,0 +1,267 @@
+
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><meta name="format-detection" content="telephone=no" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="apple-mobile-web-app-status-bar-style" content="black" /><title>
+	快乐家园VIS | 
+</title>
+    <meta name="keywords" content="" /> 
+    <meta name="description" content="" />
+    <link href="css/global.css" rel="stylesheet" type="text/css" /><link href="css/max800.css" rel="stylesheet" type="text/css" /><link href="css/icomoon.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="js/global.js"></script>
+    <script src="galleria/galleria-1.4.2.min.js"></script>
+</head>
+<body>
+    <form name="form1" method="post" action="./details-17-70.html?type=17&amp;id=70" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5MjExMzA4MzAPFg4eBXRpdGxlBQ/lv6vkuZDlrrblm61WSVMeBGNvbnQFG+mrmOerr+WFu+iAgemhueebrlZJU+iuvuiuoR4JdmlkZW9GaWxlZR4IdmlkZW9JbWdlHgJpZAJGHgh3ZWJUaXRsZQUS5b+r5LmQ5a625ZutVklTIHwgHgtkZXNjcmlwdGlvbmUWAgIDD2QWBGYPFgIeC18hSXRlbUNvdW50AgUWCmYPZBYCZg8VASY8aW1nIHNyYz0nL3VwbG9hZHMvMjAxNjAyMDQ0NDUxNi5qcGcnPmQCAQ9kFgJmDxUBJjxpbWcgc3JjPScvdXBsb2Fkcy8yMDE2MDIwNDQ0NTI2LmpwZyc+ZAICD2QWAmYPFQElPGltZyBzcmM9Jy91cGxvYWRzLzIwMTYwMjA0NDQ1Mi5qcGcnPmQCAw9kFgJmDxUBJjxpbWcgc3JjPScvdXBsb2Fkcy8yMDE2MDIwNDQ0NjExLmpwZyc+ZAIED2QWAmYPFQEmPGltZyBzcmM9Jy91cGxvYWRzLzIwMTYwMjA0NDQ1MjEuanBnJz5kAgEPFgIfB2ZkZCX/Q/T2xBaOr0C0ApwgC4Ujp3/7BNv0J+DkkUAlk5vg" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C9F36B63" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAgKCiMGrAwKwjbCsAkJZYIbrNnoc/zrZ0l+nGKi0182laSxL9L9C+pdcP94l" />
+</div>
+    <section class="headbox bgfff cf"></section>
+    <script>        $.ajax({ url: "include/top.html", success: function (x) { $('.headbox').html(x); } }); </script>
+    <article class="page">
+	<section class="container">
+		<div class="site-main paddingtop20 paddingbottom50 cf"> 
+			<div class="positionRelative"> 
+				<div class="galleria">
+					 
+						<img src='/uploads/2016020444516.jpg'>  
+						 
+						<img src='/uploads/2016020444526.jpg'>  
+						 
+						<img src='/uploads/201602044452.jpg'>  
+						 
+						<img src='/uploads/2016020444611.jpg'>  
+						 
+						<img src='/uploads/2016020444521.jpg'>  
+						 
+				</div>
+			</div>
+			<script>
+			    $(document).ready(function () {
+
+			        var countAll = 0;
+
+			        var openMask = function (id) {
+			            var o = $(id);
+			            var w_w = $(window).width() / 2;
+			            var p_w = o.width() / 2;
+			            var left = w_w - p_w;
+			            var w_h = $(window).height() / 2;
+			            var p_h = o.height() / 2;
+			            var top = w_h - p_h;
+			            o.css({ "left": left, "top": top });
+			        };
+			        openMask("#popup");
+
+
+			        var _div;
+
+
+			        if ('False' == 'True') {
+			            _div = $("<div />", {
+			                id: "videoicon"
+			            });
+			            _div.html('<span class="icon-play fontSize10 marginright5"></span>video');
+			        }
+			        else {
+			            _div = "";
+			        }
+
+
+			        $(function () {
+			            if ($(".iframe").length > 0) {
+			                _div.show();
+			            }
+			        });
+			        var _index = -1;
+			        if ($(".galleria").length > 0) {
+			            $($(".galleria")[0]).children().each(function (index, element) {
+			                if ($(element).hasClass("ifm")) {
+			                    _index = index;
+			                    _div.click(function () {
+			                        $($(".galleria-thumbnails div")[index]).click();
+			                    });
+			                }
+			            });
+			        }
+			        Galleria.loadTheme('galleria/galleria.classic.min.js');
+			        Galleria.run('.galleria', {
+			            countCall: function () {
+			                countAll++;
+			                //没有留下个人信息，并且到第三页数据后弹出留言框  
+			                var v = '';
+			                if (countAll == 3 && v == "") {
+			                    $("#mask").fadeIn();
+			                    $("#popup").delay(40).fadeIn();
+			                    $(".page").addClass("blur5");
+			                    /*$("#popup").addClass("popup-enter");*/
+			                    document.body.style.overflow = 'hidden';
+			                    return false;
+			                }
+			            },
+			            bindClick: function () {
+			                $(".galleria-counter").after(_div);
+			                if ($(window).width() > 800) {
+			                    $(".galleria-counter").click(function () {
+			                        $(".galleria-thumbnails-container").slideDown();
+			                        $(".galleria-counter").addClass("hover");
+			                        _div.hide();
+			                    });
+			                    $(".galleria-thumbnails, .icon-clear").click(function () {
+			                        $(".galleria-thumbnails-container").hide();
+			                        $(".galleria-counter").removeClass("hover");
+			                        _div.show();
+			                    });
+			                } else {
+			                    _div.hide();
+			                }
+			            }
+			        });
+
+
+			        //继续浏览
+			        $(".popup-a").click(function () {
+
+			            //点击继续浏览后，为cookie赋值
+			            $.ajax({
+			                type: "post",
+			                url: "/WriteCookie.aspx",
+			                data: {
+			                    "name": 0
+			                },
+			                success: function (x) { 
+			                }
+			            });
+
+			            $("#mask").delay(40).fadeOut();
+			            /*$("#popup").removeClass("popup-enter");*/
+			            $("#popup").fadeOut();
+			            $(".page").removeClass("blur5");
+			            document.body.style.overflow = '';
+			            //location.href = "details-" + data + ".html";
+			            countAll = 100;
+			            return true;
+
+			        });
+
+			    }); 
+			</script> 
+			<div class="area_50_66 fnone marginauto">
+				<p class="fontSize20 line-height1_3em font-bold color444">快乐家园VIS</p>
+				<p class="fontSize12 opacity0_8">高端养老项目VIS设计</p>
+				<div class="margintop20 det-txt">
+                    
+               </div>
+			</div>  
+		</div> 
+       
+	</section> 
+	<section class="footbox"></section>
+	 
+
+    <input type="hidden" name="hidId" id="hidId" value="70" />
+    
+</article>
+    <div class="bgfff_95" id="popup">
+        <div class="popup-con box-shadow5">
+            <p class="fontSize24 line-height1_3em font-bold color444 tcenter">
+                如果您对我们的案例感兴趣<br>
+                可留下您的联系方式及留言</p>
+            <dl class="popup-dl01 margintop20 marginbottom5 cf">
+                <dt class="fleft fontSize16 line-height2em color808284">姓名：</dt>
+                <dd class="fleft">
+                    <input type="text" class="input01" id="name"></dd>
+            </dl>
+            <dl class="popup-dl01 marginbottom5 cf">
+                <dt class="fleft fontSize16 line-height2em color808284">公司：</dt>
+                <dd class="fleft">
+                    <input type="text" class="input01" id="companyName"></dd>
+            </dl>
+            <dl class="popup-dl01 marginbottom5 cf">
+                <dt class="fleft fontSize16 line-height2em color808284">职位：</dt>
+                <dd class="fleft">
+                    <input type="text" class="input01" id="jobs"></dd>
+            </dl>
+            <dl class="popup-dl02 marginbottom5 cf">
+                <dt class="fleft fontSize16 line-height2em color808284">联系电话：</dt>
+                <dd class="fleft">
+                    <input type="text" class="input01" id="phone"></dd>
+            </dl>
+            <dl class="popup-dl02 marginbottom10 cf">
+                <dt class="fleft fontSize16 line-height2em color808284">电子邮箱：</dt>
+                <dd class="fleft">
+                    <input type="text" class="input01" id="emails"></dd>
+            </dl>
+            <p class="marginbottom10">
+                <textarea rows="4" class="width100 fontSize16" id="msg">留言：</textarea></p>
+            <p class="tcenter">
+                <a class="button button-s button-line" id="sumBtn">提交</a></p>
+            <a class="fontSize12 color929292 popup-a">继续浏览>></a>
+        </div>
+    </div>
+    <div id="mask">
+    </div>
+    
+
+    <script>
+        /*提交数据*/
+        $("#sumBtn").click(function () {
+            var name = $("#name").val();
+            var emails = $("#emails").val();
+            var phone = $("#phone").val();
+            var msg = $("#msg").val();
+            var companyName = $("#companyName").val();
+            var jobs = $("#jobs").val();
+            var id = $("#hidId").val(); 
+
+            if (name == "") {
+                alert("请填写姓名");
+                return;
+            }
+            if (phone == "" && emails == "") {
+                alert("联系电话和邮箱至少填写一项");
+                return;
+            } else {
+                $.ajax({
+                    type: "post",
+                    url: "/details.aspx",
+                    data: {
+                        "name": name,
+                        "msg": msg,
+                        "phone": phone,
+                        "emails": emails,
+                        "companyName": companyName,
+                        "jobs": jobs,
+                        "id": id,
+                        "msgFrom": window.location.href
+                    },
+                    success: function (x) {
+                        if (x > 0) {
+                            alert('您的留言我们已经收到，我们将尽快与您联系!');
+                            $("#name").val('');
+                            $("#phone").val('');
+                            $("#emails").val('');
+                            $("#msg").val('');
+                            $("#companyName").val('');
+                            $("#jobs").val('');
+
+                            $(".popup-a").click();
+                        } else {
+                            alert('系统繁忙，请重试...');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+    </form>
+
+</body>
+</html>
