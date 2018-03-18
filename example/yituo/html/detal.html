@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="../css/index.css" />
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">                       
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+  <style>
+    .carousel {
+      overflow: hidden;
+      position: relative;
+      height: auto;
+    }
+
+    .carousel img {
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .m {
+      position: absolute;
+      top: 50%;
+      margin-left: 10px;
+      color: white;
+      z-index: 99;
+    }
+    .carousel-list {
+      position: relative;
+    }
+    .n {
+      position: absolute;
+      z-index: 99;
+      top: 50%;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="./index.html" class="left">
+      <img class="logo" src="../static/img/log.png" alt="log">
+    </a>
+    <nav class="navigation">
+      <ul>
+        <li>
+          <a href="">STRATEGY</a>
+        </li>
+        <li>
+          <a href="">DESUGN</a>
+        </li>
+        <li>
+          <a href="">INTERACTIVE</a>
+        </li>
+        <li>
+          <a href="">IMAGES</a>
+        </li>
+        <li>
+          <a href="">ABOUT US</a>
+        </li>
+        <li>
+          <a href="">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="container">
+    <div class="carousel">
+      <div class="carousel-list">
+        <img class="1_" src="../static/img/autoplay/4.jpg" /><img class="1_" src="../static/img/autoplay/3.jpg" /><img class="1_" src="../static/img/autoplay/2.jpg" /><img class="1_" src="../static/img/autoplay/4.jpg" />
+      </div>
+        <i class="fa fa-arrow-left m" aria-hidden="true" onclick="carouselMinus()"></i>
+        <i class="fa fa-arrow-right n" aria-hidden="true" onclick="carouselPlaus()"></i>
+    </div>
+    <div style="width: 50%">
+      <p style="margin-bottom: 30px; text-align: center; font-weight: bold; font-size: 20px; color: #696969;">光明地产集团官网</p>      
+    </div>
+
+  </main>
+  <footer>
+      <hr>
+      <span>
+      <span class="company-name"><b>MI 勇略</b>PROTFOLIO</span>
+      <br>
+      This page is confidential, protected by copyright and may be privileged.
+      <br>
+      Please do not copy and forward if not noticed by the sender. 
+      <br>
+      MI 勇略  浦东新区北张家浜路88号B802
+      <br>
+      备案号：沪ICP备12018625号  
+      </span>
+  </footer>
+  <script type="text/javascript">
+// event
+  function carouselPlaus() {
+    console.log("2",t_loopnum)
+    --t_loopnum
+    if(t_loopnum >= 1){
+      $(".carousel-list").animate({"left": '-='+ $(".1_").width()}, 'slow')
+    }
+    else{
+      $(".carousel-list").animate({"left": '0'}, 'slow')
+      t_loopnum = loopnum
+    }
+  }
+
+  function carouselMinus() {
+    console.log("2",t_loopnum)
+    ++t_loopnum
+    if(t_loopnum <= loopnum){
+      $(".carousel-list").animate({"left": '+='+ $(".1_").width()}, 'slow')
+    }
+    else{
+      t_loopnum = loopnum
+    }
+  }
+// carousel
+
+var loopnum,t_loopnum;
+function carouselInit() {
+    // 轮播初始化
+    let containswidth = $(".carousel").width()
+    $(".1_").width(containswidth)
+    $("carousel").height($(".1_").outerHeight())
+    $(".carousel-list").width(containswidth * 4 + 20)
+    $(".carousel-list").height($(".1_").outerHeight())
+    $("carousel").height($(".1_").outerHeight())
+    $(".n").css({"left": $(".1_").width() -24})
+}
+
+function carouseLoop() {
+
+  setInterval(function(){
+    console.log("1",t_loopnum)
+      --t_loopnum
+      if(t_loopnum >= 1){
+        $(".carousel-list").animate({"left": '-='+ $(".1_").width()}, 'slow')
+      }
+      else{
+        $(".carousel-list").animate({"left": '0'}, 'slow')
+        t_loopnum = loopnum
+      }
+  },25000)
+}
+
+function carousel(tm) {
+  carouselInit()
+  //  global var 'loop' init
+  loopnum = Math.ceil($(".carousel-list").width() /  $(".1_").width()) - 1;
+  t_loopnum = loopnum;
+  carouseLoop()
+}
+
+// ready
+$(document).ready(function(){
+  carousel()
+});
+
+
+
+
+  </script>
+</body>
+</html>
