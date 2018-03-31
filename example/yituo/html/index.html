@@ -5,7 +5,8 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <title>首页</title>
   <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
-  <link rel="stylesheet" type="text/css" href="../css/index.css" /> 
+  <link rel="stylesheet" type="text/css" href="../css/index.css" />
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 </head>
 <body>
   <header>
@@ -152,5 +153,19 @@
       备案号：沪ICP备12018625号  
       </span>
   </footer>
+  <script>
+   $(document).ready(function() {
+      $.ajax({
+        method: 'jsonp',
+        url: 'http://120.79.53.0/ytcc/app/data?viewid=gw_imgshow&cpid=1',
+        success: function(data) {
+          console.log(data)
+        },
+        error: function(data) {
+          console.log(data)
+        }
+      })
+    })
+  </script>
 </body>
 </html>

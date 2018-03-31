@@ -8,47 +8,65 @@
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
 	<style>
 		.g {
-			margin: 200px auto;
+			margin: 80px auto;
 			width: 700px;
 		}
 		.fa {
-			padding: 2px;
-			margin-bottom: 3px;
-			border: 1px solid white;
+			margin: 8px;
+			color: #333
 		}
 
 		.fa:hover {
-			border: 1px solid grey;
+			color: #1e88e5
 		}
+
 		#wysiwyg {
-			height: 100px;
 			width: 700px;
-			border:1px solid black;
+			height: 300px;
+			border: 1px solid #ccc;
 			margin-bottom: 30px;
 		}
 
-		#wysiwyg p{
-			margin: 0;
+		#wysiwyg {
+			font-size: 16px;
+			font-family: arial, sans-serif;
+			line-height: 1.6;
+			color: #333;
+			border-top:none;
+			padding-right: 10px;					
+			outline: none;
+			word-wrap: break-word;
+			overflow-y: scroll;		
+		}
+		.tool {
+			width: 700px;		
+			background-color: #f1f1f1;
+			border: 1px solid #ccc;
+			padding-right: 10px;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
 		}
 	</style>
 </head>
 <body>
 	<div class="g">
 		<div class="tool">
-			<i class="fa fa-align-center"></i>
-			<i class="fa fa-align-left"></i>			
-			<i class="fa fa-align-right"></i>
-			<i class="fa fa-bold"></i>
+			<i class="fa fa-align-center" data-name="justifyCenter" onclick="justify(this)" ></i>
+			<i class="fa fa-align-left"   data-name="justifyLeft"   onclick="justify(this)" ></i>
+			<i class="fa fa-align-right"  data-name="justifyRight"  onclick="justify(this)" ></i>
+			<i class="fa fa-bold" data-name="bold" onclick="justify(this)"></i>
 			<i class="fa fa-chain"></i>
 			<i class="fa fa-chain-broken"></i>
 			<i class="fa fa-list-ol"></i>								
 		</div>
-		<div id="wysiwyg"> <p><br></p></div>
+		<div id="wysiwyg"><p><br></p></div>
 		<button id="btn1">打开富文本编辑</button>
 		<button id="btn2">关闭富文本编辑</button>
 		<button type="button" onclick="alert(window.getSelection())">查看选中文字</button>
-		<button type="button" onclick="slicel()">切片</button>
-	</div>   
+	</div>
+
 <script>
 	btn1.onclick = function() { wysiwyg.contentEditable = true;  }
 	btn2.onclick = function() { wysiwyg.contentEditable = false; }
@@ -56,25 +74,66 @@
 		wysiwyg.contentEditable = true
 	});
 
-	var l = 0;
-
-	function slicel () {
-		var text1 = $('#wysiwyg').html()
-		
-		console.log(text1)
-		$('#wysiwyg').empty()
-		var arry = text1.split("<br>");
-		// arry.pop()
-		arry.every(function(index) {
-				$('#wysiwyg').append('<p>' + index + '</p>')
-		})
-	}
-
-	$(document).keyup( function(event) {  
-		if(event.keyCode == 13){  
-			slicel()
+	var initSelection, selectBool = 0
+	$("#wysiwyg").click( function () {
+		if(selectBool === 0){
+			initSelection = window.getSelection()
+			selectBool = 1
 		}
-	});  
+	});
+	
+	
+	$(document).keyup( function(event) {
+		 if( event.keyCode === 8 ) {
+		 	if($("#wysiwyg").html() === '' || $("#wysiwyg").html() === '<br>' ) {
+		 		$("#wysiwyg").html('')
+        var $p = $('<p><br></p>');
+		 		$("#wysiwyg").append($p);
+		 		createRangeByElem($p, true, true)
+		 	}
+		 }
+	});
+
+  var createRangeByElem = function createRangeByElem($elem, toStart, isContent) {
+	    // $elem - 经过封装的 elem
+	    // toStart - true 开始位置，false 结束位置
+	    // isContent - 是否选中Elem的内容
+	    if (!$elem.length) {
+	        return;
+	    }
+
+	    var elem = $elem[0];
+	    var range = document.createRange();
+
+	    if (isContent) {
+	        range.selectNodeContents(elem);
+	    } else {
+	        range.selectNode(elem);
+	    }
+
+	    if (typeof toStart === 'boolean') {
+	        range.collapse(toStart);
+	    }
+		const selection = window.getSelection()
+		selection.removeAllRanges()
+		selection.addRange(range)
+
+	}
+	var st = {status: true, node: {}}
+	function justify(e) {
+		document.execCommand(e.getAttribute('data-name'))
+		e.style.color = "#1e88e5"
+		if(st.status){
+			st.status = false
+			st.node = e
+		}
+		else {
+			st.node.style.color = "#333"
+			st.node = e
+		}
+		// 在此时我们应当把鼠标指针保存
+		// 经测试当为范围时候也需要改变虽说不改变其范围但是已经不可以接受键盘输入了
+	}
 </script>
 </body>
 </html>
