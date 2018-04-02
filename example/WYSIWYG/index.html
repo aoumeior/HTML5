@@ -59,17 +59,24 @@
 			<i class="fa fa-bold" data-name="bold" onclick="justify(this)"></i>
 			<i class="fa fa-chain"></i>
 			<i class="fa fa-chain-broken"></i>
-			<i class="fa fa-list-ol"></i>								
+			<i class="fa fa-list-ol"></i>
+			<i class="fa fa-unlock" style="float: right;" onclick="lock(this)"></i>				
 		</div>
 		<div id="wysiwyg"><p><br></p></div>
 		<button id="btn1">打开富文本编辑</button>
 		<button id="btn2">关闭富文本编辑</button>
 		<button type="button" onclick="alert(window.getSelection())">查看选中文字</button>
 	</div>
-
+	
+	<div class="">
+		<caption></caption>
+		<ul>
+			<li>H1</li>
+			<li>H2</li>
+			<li>H3</li>
+		</ul>
+	</div>
 <script>
-	btn1.onclick = function() { wysiwyg.contentEditable = true;  }
-	btn2.onclick = function() { wysiwyg.contentEditable = false; }
 	$(document).ready(function() {
 		wysiwyg.contentEditable = true
 	});
@@ -82,7 +89,7 @@
 		}
 	});
 	
-	
+// 兼容性
 	$(document).keyup( function(event) {
 		 if( event.keyCode === 8 ) {
 		 	if($("#wysiwyg").html() === '' || $("#wysiwyg").html() === '<br>' ) {
@@ -119,11 +126,13 @@
 		selection.addRange(range)
 
 	}
+
+// 图标状态
 	var st = {status: true, node: {}}
 	function justify(e) {
 		document.execCommand(e.getAttribute('data-name'))
 		e.style.color = "#1e88e5"
-		if(st.status){
+		if( st.status ) {
 			st.status = false
 			st.node = e
 		}
@@ -131,8 +140,30 @@
 			st.node.style.color = "#333"
 			st.node = e
 		}
+		$("#wysiwyg").focus()
 		// 在此时我们应当把鼠标指针保存
 		// 经测试当为范围时候也需要改变虽说不改变其范围但是已经不可以接受键盘输入了
+	}
+
+//  文本锁
+	var lockstatus = false
+	function lock (n) {
+		
+		if ( lockstatus ) {
+			
+			n.classList.remove('fa-lock')
+			n.classList.add('fa-unlock')
+			lockstatus = false
+			wysiwyg.contentEditable = true; 
+		}
+		else {
+
+			n.classList.remove('fa-unlock')			
+			n.classList.add('fa-lock')
+			lockstatus = true
+			wysiwyg.contentEditable = false;
+		}
+
 	}
 </script>
 </body>
