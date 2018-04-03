@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
   <link rel="stylesheet" type="text/css" href="../css/index.css" />
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+  <script src="../js/index.js"></script>  
 </head>
 <body>
   <header>
@@ -47,91 +48,24 @@
         <span>服务项目包括：市场调研，品牌策略、市场定位、营销策略等； 服务项目包括：市场调研，品牌策略、市场定位、营销策略等； </span>
       </article>
     </div>
+
+
+    <ul class="temp_dl_dt_ul">
+        <li class="temp_dl_dt_ul_li active" bor="全部">全部</li>
+        <li class="temp_dl_dt_ul_li " bor="活动票务">活动票务(149)</li>
+        <li class="temp_dl_dt_ul_li " bor="互动社群">互动社群(19)</li>
+        <li class="temp_dl_dt_ul_li " bor="内容资讯">内容资讯(73)</li>
+        <li class="temp_dl_dt_ul_li " bor="相册">相册(44)</li>
+        <li class="temp_dl_dt_ul_li " bor="知识付费">知识付费(29)</li>
+        <li class="temp_dl_dt_ul_li " bor="商城">商城(63)</li>
+        <li class="temp_dl_dt_ul_li " bor="点餐外卖">点餐外卖(2)</li>
+        <li class="temp_dl_dt_ul_li " bor="同城生活">同城生活(9)</li>
+        <li class="temp_dl_dt_ul_li " bor="微页面套餐">微页面套餐(87)</li>
+        <li class="temp_dl_dt_ul_li " bor="推广员">推广员(20)</li>
+        <li class="temp_dl_dt_ul_li " bor="储值卡">储值卡(9)</li>
+        <li class="temp_dl_dt_ul_li " bor="语音口令红包">语音口令红包(1)</li>
+    </ul>
     <section class="bussinessshow">
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/1.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/2.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/3.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/4.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/5.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/6.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-       <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/7.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/8.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/11.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/10.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/1.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
-      <figure>
-        <a href="./detal.html">
-          <img src="../static/img/show/1.jpg" alt="">
-          <figcaption>X－FIT</figcaption>
-          <span>视觉VI LOGO设计 平面设计</span>
-        </a>
-      </figure>
     </section>
 
       <br>
@@ -154,18 +88,19 @@
       </span>
   </footer>
   <script>
-   $(document).ready(function() {
-      $.ajax({
-        method: 'jsonp',
-        url: 'http://120.79.53.0/ytcc/app/data?viewid=gw_imgshow&cpid=1',
-        success: function(data) {
-          console.log(data)
-        },
-        error: function(data) {
-          console.log(data)
-        }
-      })
+   var root = 'http://localhost:8080/ytcc';
+    
+    $(function(){
+  //        getCp();
+      getCp("全部");
     })
+    //  用于控制swith切换
+  $(".temp_dl_dt_ul li").click(function() {
+      var index = $(this).index();
+      $(".bussinessshow").children().remove()
+      $(this).addClass("active").siblings().removeClass("active");
+        getCp($(this).attr("bor"))
+  });
   </script>
 </body>
 </html>

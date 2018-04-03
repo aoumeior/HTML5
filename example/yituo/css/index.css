@@ -10,16 +10,14 @@
         box-sizing: border-box;
         width: 960px;
         margin: 0 auto;
-        font-family: opensans, "Hiragino Sans GB", "STHeiti", Helvetica, "Microsoft Yahei", 微软雅黑, 黑体, 新細明體, Arial, "Lucida Grande", sans-serif;
       }
     }
 
     @media screen and (max-width: 960px) {
       body {
         box-sizing: border-box;
-        width: 960px;
+        width: 900px;
         margin: 0 20px;
-        font-family: opensans, "Hiragino Sans GB", "STHeiti", Helvetica, "Microsoft Yahei", 微软雅黑, 黑体, 新細明體, Arial, "Lucida Grande", sans-serif;
       }
     }
 
@@ -47,10 +45,10 @@
 
     .navigation a {
       color: #929292;
-      margin-right: 30px;
-      padding-bottom: 13px;
       font-size: 14px;
       text-decoration: none;
+      margin-right: 30px;
+      padding-bottom: 15px;      
       /* border-bottom: 1px solid #232323; */
     }
     a.active {
@@ -74,7 +72,8 @@
     .bussinessshow {
       display: flex;
       flex-wrap: wrap;
-      margin-top: 20px;
+      justify-content: space-between;
+      margin-top: 0px;      
     }
 
     .bussinessshow > figure {
@@ -85,17 +84,14 @@
       padding-left: 0;
     }
     
-    .bussinessshow :nth-child(4) {
+    .bussinessshow :nth-child(3n+1) {
       padding-left: 0;
     }
 
-    .bussinessshow :nth-child(7) {
-      padding-left: 0;
+    .bussinessshow :nth-child(3n) {
+      padding-right: 0;
     }
 
-    .bussinessshow :nth-child(10) {
-      padding-left: 0;
-    }
     .bussinessshow figure {
       width: 30%;     
     }
@@ -113,7 +109,34 @@
       text-decoration: none;
       font-size: 12px;
     }
+        figure a {
+      color: grey;
+    }
 
+    figure:hover a {
+      color: black;
+    }
+
+    figure:hover .left-pic-show {
+      display: block;
+      width: 200px;
+      height: 200px;
+      z-index: 99;
+    }
+    .left-pic-show span {
+      color: black;
+      font-size: 20px;
+      line-height: 36px;
+    }
+
+    .left-pic-show img {
+      border: 1px solid grey;
+      filter: grayscale(0%);
+    }
+    .bussinessshow:after {
+      content: "";
+      flex: auto;
+    }
     footer {
       margin-bottom: 20px;
     }
@@ -127,7 +150,60 @@
       line-height: 22.4px;
     }
 
-/*    .company-info {
-      font-size: 12px;
-      line-height: 22.4px;
-    }*/
+
+    /* tab-swith */
+    ul, dl, li, dt, dd {
+      list-style: none;
+    }
+
+    .temp_dl_dt_ul_li:hover {
+      background: #929292;
+      color: #fff
+    }
+
+    .temp_dl_dt_ul {
+      width: 100%;  
+      padding: 0;
+      margin-top: 30px;
+      display: inline-flex;
+      flex-wrap: wrap;
+    }
+
+    .temp_dl_dt_ul_li {
+      width: 120px;
+      color: #999999;
+      font-size: 16px;
+      line-height: 36px;
+      text-align: center;
+      font-weight: normal;
+      cursor: pointer;
+      margin: 0 10px 10px 0;
+      border: 1px solid #ddd;
+    }
+
+    .temp_dl_dt_ul_li.active {
+      color: #ffffff;
+      background: #929292;
+      border: 1px solid #929292;  
+    }
+
+    .left-pic-show {
+      position: fixed;
+      bottom: 20%;
+      animation: wechatShow 0.5s;
+      animation-fill-mode: forwards;
+      display: none;
+      text-align: center;
+    }
+
+
+
+    @keyframes wechatShow
+    {
+      from {
+        right: -20px;
+      }
+      to { 
+        right: 20px;
+      }
+    }
