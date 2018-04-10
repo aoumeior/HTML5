@@ -91,16 +91,15 @@
    var root = 'http://localhost:8080/ytcc';
     
     $(function(){
-  //        getCp();
       getCp("全部");
     })
-    //  用于控制swith切换
-  $(".temp_dl_dt_ul li").click(function() {
+    // 用于控制swith切换
+    $(".temp_dl_dt_ul li").click(function() {
       var index = $(this).index();
       $(".bussinessshow").children().remove()
       $(this).addClass("active").siblings().removeClass("active");
         getCp($(this).attr("bor"))
-  });
+    });
   </script>
 </body>
 </html>
