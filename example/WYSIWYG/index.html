@@ -48,33 +48,97 @@
 	    -ms-user-select: none;
 	    user-select: none;
 		}
+		
+		.menu ul {
+			padding-left: 0;
+			background-color: white;
+		}
+		.menu li {
+			width: 100px;
+			padding: 0;
+		}
+
+		.menu li:hover {
+			background-color: grey;
+			cursor: default;
+		}
+		.justifyList {
+			display: none;
+			list-style: none; position: absolute; border: 1px solid #ccc; border-top: 0; margin: 0;
+		}
+
+		.fontSize {
+			display: none;
+			list-style: none; position: absolute; border: 1px solid #ccc; border-top: 0; margin: 0;
+		}
+		.upPhote {
+			display: none;
+			position: absolute; padding-top: 5px; width: 250px;  border: 1px solid #ccc;
+		}
 	</style>
 </head>
 <body>
 	<div class="g">
 		<div class="tool">
-			<i class="fa fa-align-center" data-name="justifyCenter" onclick="justify(this)" ></i>
-			<i class="fa fa-align-left"   data-name="justifyLeft"   onclick="justify(this)" ></i>
-			<i class="fa fa-align-right"  data-name="justifyRight"  onclick="justify(this)" ></i>
 			<i class="fa fa-bold" data-name="bold" onclick="justify(this)"></i>
-			<i class="fa fa-chain"></i>
+			<i class="fa fa-chain" data-name="insertimage" data-value="http://files.cnblogs.com/files/xiaohuochai/zan.gif" onclick=""></i>
 			<i class="fa fa-chain-broken"></i>
-			<i class="fa fa-list-ol"></i>
-			<i class="fa fa-unlock" style="float: right;" onclick="lock(this)"></i>				
+			<div class="menu" style="display: inline-block; position: relative;">
+				<header>
+					<i class="fa fa-photo"></i>
+				</header>
+				<div class="upPhote">
+					<label for="upload-file" style="display: inline-block; border: 1px solid grey; border-radius: 3px; margin: 4px; padding: 2px; line-height: 30px;">上传</label>
+					<input type="text" style="display: inline-block;" disabled>
+					<input type="file" id="upload-file" style="display: none" title="或者你可以通过这里修改成你要的文字">
+				</div>
+				</ul>
+			</div>
+			<i class="fa fa-list-ol" data-value="insertorderedlist" onclick="insertOrderedList(this)"></i>
+			
+			<div class="menu" style="display: inline-block; position: relative;">
+				<header onclick="justifyShow()">
+					<i class="fa fa-align-center" data-name="justifyCenter" onclick="justify(this)" ></i>
+				</header>
+				<ul class="justifyList">
+					<li data-name="justifyCenter" onclick="justify(this)" >
+						<i class="fa fa-align-center"></i>
+						<span>居中</span>
+					</li>
+					<li data-name="justifyLeft"   onclick="justify(this)">
+						<i class="fa fa-align-left"></i>
+						<span>左对齐</span>
+					</li>
+					<li data-name="justifyRight"  onclick="justify(this)" >
+						<i class="fa fa-align-right"></i>
+						<span>右对齐</span>
+					</li>
+				</ul>
+			</div>
+			<div class="menu" style="display: inline-block; position: relative;">
+				<header>
+					<i class="fa fa-font" onclick="fontShow()" ></i>
+				</header>
+				<ul class="fontSize">
+					<li data-name="fontsize" data-value="16" onclick="font(this)" >
+						<i class="fa fa-font"></i>
+						<span>16px</span>
+					</li>
+					<li data-name="fontsize" data-value="18"   onclick="font(this)">
+						<i class="fa fa-font"></i>
+						<span>18px</span>
+					</li>
+					<li data-name="fontsize" data-value="24"  onclick="font(this)" >
+						<i class="fa fa-font"></i>
+						<span>24px</span>
+					</li>
+				</ul>
+			</div>
+			<i class="fa fa-file"  title="获取源文本" style="float: right;" onclick="getorigintext()"></i>			
+			<i class="fa fa-save"  title="保存" style="float: right;"></i>
+			<i class="fa fa-unlock" title="锁" style="float: right;" onclick="lock(this)"></i>
 		</div>
 		<div id="wysiwyg"><p><br></p></div>
-		<button id="btn1">打开富文本编辑</button>
-		<button id="btn2">关闭富文本编辑</button>
-		<button type="button" onclick="alert(window.getSelection())">查看选中文字</button>
-	</div>
-	
-	<div class="">
-		<caption></caption>
-		<ul>
-			<li>H1</li>
-			<li>H2</li>
-			<li>H3</li>
-		</ul>
 	</div>
 <script>
 	$(document).ready(function() {
@@ -145,25 +209,91 @@
 		// 经测试当为范围时候也需要改变虽说不改变其范围但是已经不可以接受键盘输入了
 	}
 
-//  文本锁
-	var lockstatus = false
+	// justify 显示菜单
+	function justifyShow () {
+		var i = document.getElementsByClassName("justifyList")[0]
+		i.style.display = "block"
+		i.addEventListener('mouseleave', function(event) {
+			event.stopPropagation()
+			document.getElementsByClassName("justifyList")[0].style.display = "none"
+		});
+	}
+	// photo 显示上传图片
+	document.getElementsByClassName("fa-photo")[0].addEventListener("click",function (e) {
+		var i = document.getElementsByClassName("upPhote")[0]
+		i.style.display = "block"
+		e.stopPropagation()
+	})
+
+	document.addEventListener("click", function(e) {
+    var ev = e || window.event;
+    if (ev.stopPropagation) {
+      ev.stopPropagation();
+    }
+    else if (window.event) {
+      window.event.cancelBubble = true;//兼容IE
+    }
+  	document.getElementsByClassName("upPhote")[0].style.display = "none"
+  })
+
+  document.getElementsByClassName("upPhote")[0].click(function(e) {
+    var ev = e || window.event;
+    if(ev.stopPropagation) {
+      ev.stopPropagation()
+    }
+    else if(window.event) {
+      window.event.cancelBubble = true //兼容IE
+    }
+	})
+
+	function fontShow () {
+		var i = document.getElementsByClassName("fontSize")[0]
+		i.style.display = "block"
+		i.addEventListener('mouseleave', function(event) {
+			event.stopPropagation()
+			document.getElementsByClassName("fontSize")[0].style.display = "none"
+
+		},false);
+	}
+
+	// fontchange
+	function font (e) {
+		document.execCommand("fontsize", false, e.getAttribute('data-value'))
+		// 此时应当恢复鼠标位置
+		// 若鼠标在编辑区内则恢复
+		// 否则不恢复
+	}
+	//  文本锁
+	var LOCKSTATUS = false
 	function lock (n) {
 		
-		if ( lockstatus ) {
+		if ( LOCKSTATUS ) {
 			
 			n.classList.remove('fa-lock')
 			n.classList.add('fa-unlock')
-			lockstatus = false
+			LOCKSTATUS = false
 			wysiwyg.contentEditable = true; 
 		}
 		else {
 
 			n.classList.remove('fa-unlock')			
 			n.classList.add('fa-lock')
-			lockstatus = true
+			LOCKSTATUS = true
 			wysiwyg.contentEditable = false;
 		}
 
+	}
+
+
+	function getorigintext(out) {
+		if(out !== "function" || out === undefined) {
+			console.log(document.getElementById('wysiwyg').innerHTML)
+		}
+	}
+
+	function insertOrderedList (e) {
+		// Range
+		document.execCommand(e.getAttribute('data-value'))
 	}
 </script>
 </body>
