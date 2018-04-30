@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rem</title>
+	<style>
+	/*rem（font size of the root element）是指相对于根元素的字体大小的单位（可以联想一下em）。*/
+	body {
+		font-size: 14px;
+	}
+	.container {
+		display: block;
+		width: 70vw; /* 70 * 16px = 1120px chrome and firefox*/
+		/*vh等于viewport高度的1/100.
+		例如，如果浏览器的高是900px,1vh求得的值为9px。同理，如果显示窗口宽度为750px,1vw求得的值为7.5px。*/
+		margin: 0 auto;
+		background-color: red;
+	}
+	.div1 {
+		font-size: 2em;
+		/*1em与当前元素的字体大小相同（更具体地说，一个大写字母M的宽度）。CSS样式被应用之前，浏览器给网页设置的默认基础字体大小是16像素，这意味着对一个元素来说1em的计算值默认为16像素
+		。但是要小心—em单位是会继承父元素的字体大小，所以如果在父元素上设置了不同的字体大小，em的像素值就会变得复杂。*/
+		width: 1vmax;
+		/*vh和vm总是与视口的高度和宽度有关，与之不同的，vmin和vmax是与这次宽度和高度的最大值或最小值有关，取决于哪个更大和更小。
+		例如，如果浏览器设置为1100px宽、700px高，1vmin会是7px,1vmax为11px。然而，如果宽度设置为800px，高度设置为1080px，1vmin将会等于8px而1vmax将会是10.8px。*/
+		background-color: grey;
+	}
+	</style>
+</head>
+
+<body>
+	<div class="container"><div class="div1">1</div></div>
+</body>
+</html>
