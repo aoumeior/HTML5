@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>mariginofpercent</title>
+</head>
+<style>
+	*
+	{
+		margin: 0;
+		padding:0;
+	}
+	#container
+	{
+		width: 70vw;
+		margin: 0 auto;
+	}
+	.placeholder 
+	{
+	  width: 49%;
+	  margin-left: 0.5%;
+	  display: inline-block;
+	  background-color: red;
+	  overflow: hidden;
+	  vertical-align: bottom; /* 去除inline-block底边*/
+	}
+	.placeholder:after
+	{
+	  content: '';
+	  display: block;
+	  margin-top: 100%;
+	}
+</style>
+<body>
+	<div id="container">
+		<div class="placeholder"></div><div class="placeholder"></div>
+		<div class="placeholder"></div><div class="placeholder"></div>
+	</div>
+</body>
+</html>
