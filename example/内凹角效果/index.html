@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	body
+	{
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.box
+	{
+		overflow: hidden;
+		position: relative;
+		margin: .25em auto;
+		max-width: 15em;
+		min-width: 15em;
+		max-height: 10em;
+		min-height: 10em;
+		border-radius: 1em;
+	}
+	.box:before
+	{
+		content: '';
+		position: absolute;
+		padding: 3em;
+		margin: -3em;
+		border-radius: 50%;
+		box-shadow:  0 0 300px 300px rgba(255,0,0,0.5);	
+		z-index: -1;
+	}
+</style>
+<body>
+	<div class="box"></div>
+</body>
+</html>
