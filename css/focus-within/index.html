@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*,
+	*:before,
+	*:after
+	{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	html,
+	body
+	{
+	  font-family: helvetica, arial, sans-serif;
+	  font-size: 18px;
+	  margin: 0;
+	  padding: 0;
+	}
+	.na ul,
+	.na ol {
+	  list-style: none;
+	  padding: 0;
+	  margin: 0;
+	}	
+	.na
+	{
+		text-align: center;
+		border-bottom: #444 solid 1px;
+	}
+	.nav_list
+	{
+		display: inline-block;
+		position: relative;
+		z-index: 2;
+	}
+	.nav_list a
+	{
+		display: block;
+		padding: 20px;
+		text-decoration: none;
+		z-index: 2;
+	}
+	.nav_list > a:hover,
+	.nav_list > a:focus-within
+	{
+		color: white;
+		background: #222
+	}
+	.nav_list:focus-within > .nav_list_drop,
+	.nav_list:hover > .nav_list_drop
+	{
+		opacity: 1;
+		height: auto;
+		transform: translateY(0px); /*?*/
+	}
+
+	.nav_list_drop
+	{
+		left: 0;
+		position: absolute;
+		text-align: left;
+		top: 100%;
+		opacity: 0;
+		transform: translateY(-20px);
+		height: 1px;
+		transition: transform .2s ease-in-out,
+		opacity .1s ease-out;
+		overflow: hidden;
+		min-width: 100%;
+		z-index: 1;
+	}
+
+	.nav_list_drop
+	{
+		background: #fafafa;
+		border: 1px solid #444;
+		border-top: 0;
+	}
+
+	.nav_list_drop_list > a
+	{
+		padding: 12px 20px;
+		text-decoration: none;
+		white-space: nowrap; /* ? */
+		color: black;
+	}
+	.nav_list_drop_list:hover,
+	.nav_list_drop_list:focus-within
+	{
+		background: black;
+	}
+	.nav_list_drop_list:hover  > a,
+	.nav_list_drop_list:focus-within > a
+	{
+		color: white;
+	}
+</style>
+<body>
+	<header>
+		<nav>
+			<ul class="na">
+				<li class="nav_list">
+					<a href="">
+						 Drop Down
+					</a>
+					<ul class="nav_list_drop">
+						<li class="nav_list_drop_list">
+							<a href="focus-within.html">
+							item1
+							</a>
+						</li class="nav_list_drop_list">
+						<li class="nav_list_drop_list">
+							<a href="focus-within.html">
+								item2
+							</a>
+						</li>
+						<li class="nav_list_drop_list">
+							<a href="focus-within.html">item3</a>
+						</li>
+					</ul>
+				</li class="nav_list">
+				<li class="nav_list">
+					<a href="">
+					item2
+					</a>
+				</li>
+				<li class="nav_list">
+					<a href="">
+					item4
+				</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+</body>
+</html>
