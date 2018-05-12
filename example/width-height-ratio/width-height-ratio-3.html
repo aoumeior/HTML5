@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*,
+		*:after,
+		*:before
+		{
+			margin: 0;
+			padding: 0;
+		}
+		body
+		{
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  margin: 0 auto;
+		}
+		.aspectration
+		{
+			display: grid;
+			grid-template-columns: repeat(16, 1.875vw);
+			grid-auto-rows: 1.875vwvw;
+		}
+
+		.aspectration[data-ratio="16:9"] .content
+		{
+			grid-column: span 16;
+			grid-row: span 9;
+		}
+	</style>
+</head>
+<body>
+	<div class="contain">
+		<div class="aspectration" data-ratio="16:9">
+			<iframe src="https://www.youtube.com/embed/upPCohrJcbw?showinfo=0&modestbranding=1" frameborder="0" allowfullscreen=""
+			class="content" >
+		</iframe>
+		</div>
+	</div>
+</body>
+</html>
