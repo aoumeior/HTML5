@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    p
+    {
+        font-size: 60px;
+    }
+
+    .container
+    {
+         height: 100%;
+    }
+    
+    div
+    {
+        display: inline-block;
+    }
+    .red
+    {
+        position: fixed;
+        top: 240px;
+        left: 223px;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    .green
+    {
+        position: sticky;
+        top: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: green;
+    }
+    .olive
+    {
+        width: 100px;
+        height: 100px;
+        background-color: olive;
+    }
+</style>
+<body>
+    <main>
+        <p>In this demo you can control the position property for the yellow box.</p>
+            <div class="red"></div>
+            <div class="green"></div>
+            <div class="olive"></div>
+        <p>To see the effect of sticky positioning, select the position: sticky option and scroll this container.</p>
+        <p>The element will scroll along with its container, until it is at the top of the container (or reaches the offset specified in top), and will then stop scrolling, so it stays visible.</p>
+        <p>The rest of this text is only supplied to make sure the container overflows, so as to enable you to scroll it and see the effect.</p>
+        <p>Far out in the uncharted backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun. Orbiting this at a distance of roughly ninety-two million miles is an utterly insignificant little blue green planet whose ape-descended life forms are so amazingly primitive that they still think digital watches are a pretty neat idea.</p>
+    </main>
+    <!-- 
+    需要注意的是，使用该属性有几个必要条件，否则会失效：
+
+        父元素不能overflow:hidden或者overflow:auto属性。
+        必须指定top、bottom、left、right4个值之一，否则只会处于相对定位
+        父元素的高度不能低于sticky元素的高度
+        sticky元素仅在其父元素内生效
+    -->
+</body>
+</html>
