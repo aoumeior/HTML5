@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	.con
+	{
+		display: flex;
+		/*flex-direction: column;*/
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+	}
+
+	._1
+	{
+		/*display: inline-block; invaild*/
+		width: 100px;
+		height: 100px;
+		flex:  0 auto;
+		background-color: grey;
+	}
+
+	._2
+	{
+		/*display: inline-block;*/
+		width: 100px;
+		height: 400px;
+		order: 2;
+		flex: 0 auto;
+		background-color: green;
+	}
+
+	._3
+	{
+		/*display: inline-block;*/
+		width: 100px;
+		height: 200px;
+		flex: 0 auto;
+		order: 1;
+		flex-basis: 300px; /* 如果设置为0，内容不在考虑周围额外空间。如果设置为auto，额外空间会基于flex-grow值做分布. */
+		background-color: red;		
+	}
+</style>
+<body>
+	<div class="con">
+		<div class="_1">1</div>
+		<div class="_2">2</div>
+		<div class="_3">3</div>
+	</div>
+</body>
+</html>
