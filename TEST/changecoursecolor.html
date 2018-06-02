@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- src: https://www.w3cplus.com/css/caret-color.html -->
+</head>
+<style>
+	div
+	{
+		width: 10vw;
+		margin: 20px auto;
+	}
+
+	textarea
+	{
+		color: red !important;
+		text-shadow: 0px 0px 0px black;
+		-webkit-text-fill-color: transparent;
+	}
+
+	textarea::placeholder
+	{
+		color: rgb(60, 0, 248);
+		text-shadow: none;
+		-webkit-text-fill-color: initial;
+	}
+
+	input,
+	textarea,
+	[contenteditable]
+	{
+		color: #495057;
+		caret-color: green;
+	}
+</style>
+<body>
+	<div>
+		<textarea name="" id="" placeholder="abc" cols="30" rows="10"></textarea>		
+	</div>
+</body>
+</html>
